@@ -1,0 +1,12 @@
+name: as-pg1
+data-dir: /var/lib/etcd
+
+listen-peer-urls: http://192.168.136.10:2380
+initial-advertise-peer-urls: http://192.168.136.10:2380
+
+listen-client-urls: http://127.0.0.1:2379,http://192.168.136.10:2379
+advertise-client-urls: http://192.168.136.10:2379
+
+initial-cluster: as-pg1=http://192.168.136.10:2380,as-pg2=http://192.168.136.11:2380
+initial-cluster-state: new
+initial-cluster-token: pg18-patroni-lab-20261120

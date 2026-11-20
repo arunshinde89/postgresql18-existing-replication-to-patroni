@@ -1,0 +1,20 @@
+[Unit]
+Description=Patroni PostgreSQL 18 HA Manager
+Wants=network-online.target etcd.service
+After=network-online.target etcd.service
+
+[Service]
+Type=notify
+User=postgres
+Group=postgres
+ExecStart=/opt/patroni/venv/bin/patroni /var/lib/pgsql/patroni-migration/patroni-as-pg1-private.yml
+ExecReload=/bin/kill -s HUP $MAINPID
+KillMode=process
+Restart=on-failure
+RestartSec=5
+TimeoutStartSec=120
+TimeoutStopSec=120
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

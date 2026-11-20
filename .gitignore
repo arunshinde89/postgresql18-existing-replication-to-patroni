@@ -1,0 +1,25 @@
+# Private Patroni files and secrets
+*private.yml
+*private.yaml
+*.pgpass
+.pgpass
+*secret*.yaml
+*secret*.yml
+.env
+.env.*
+*.key
+*.pfx
+*.pem
+*.crt
+
+# Database storage, physical backups, runtime logs
+pgdata/
+backups/
+*.tar.gz
+*.log
+
+# Editor and OS artifacts
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
